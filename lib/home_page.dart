@@ -1,5 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, avoid_unnecessary_containers
 import 'package:flutter/material.dart';
+import 'package:special_counter/providers/counter_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,13 +18,17 @@ class HomePage extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.70,
             margin: EdgeInsets.all(14),
             decoration: BoxDecoration(
-              color: Colors.blue[300],
+              color: Colors.grey[300],
               borderRadius: BorderRadius.circular(15.0),
             ),
             child: Center(
-              child: Text(
-                "0",
-                style: TextStyle(fontSize: 72),
+              child: Consumer<CounterProvider>(
+                builder: (context, counter, child) {
+                  return Text(
+                    '${counter.count}',
+                    style: TextStyle(fontSize: 72),
+                  );
+                },
               ),
             ),
           ),
@@ -35,7 +41,10 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(color: Colors.grey[200]),
                 ),
                 color: Colors.black87,
-                onPressed: () {},
+                onPressed: () {
+                  print('black');
+                  // context.read<ColorProvider>().blackColor();
+                },
               ),
               MaterialButton(
                 child: Text(
@@ -43,7 +52,10 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(color: Colors.grey[200]),
                 ),
                 color: Colors.red,
-                onPressed: () {},
+                onPressed: () {
+                  print('red');
+                  // context.read<ColorProvider>().redkColor();
+                },
               ),
               MaterialButton(
                 child: Text(
@@ -51,7 +63,10 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(color: Colors.grey[200]),
                 ),
                 color: Colors.blue,
-                onPressed: () {},
+                onPressed: () {
+                  print('blue');
+                  // context.read<ColorProvider>().blueColor();
+                },
               ),
               MaterialButton(
                 child: Text(
@@ -59,7 +74,10 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(color: Colors.grey[200]),
                 ),
                 color: Colors.green,
-                onPressed: () {},
+                onPressed: () {
+                  print('green');
+                  // context.read<ColorProvider>().greenColor();
+                },
               ),
             ],
           ),
@@ -74,7 +92,10 @@ class HomePage extends StatelessWidget {
                   tooltip: "Sumar 1 cuenta",
                   icon: Icon(Icons.add),
                   color: Colors.grey[200],
-                  onPressed: () {},
+                  onPressed: () {
+                    print('suma');
+                    context.read<CounterProvider>().increment();
+                  },
                 ),
               ),
               CircleAvatar(
@@ -84,7 +105,10 @@ class HomePage extends StatelessWidget {
                   tooltip: "Restar 1 cuenta",
                   icon: Icon(Icons.remove),
                   color: Colors.grey[200],
-                  onPressed: () {},
+                  onPressed: () {
+                    print('resta');
+                    context.read<CounterProvider>().decrement();
+                  },
                 ),
               ),
               CircleAvatar(
