@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.70,
             margin: EdgeInsets.all(14),
             decoration: BoxDecoration(
-              color: Colors.grey[300],
+              color: Colors.blue[300],
               borderRadius: BorderRadius.circular(15.0),
             ),
             child: Center(
