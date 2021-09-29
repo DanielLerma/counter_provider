@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CounterProvider with ChangeNotifier {
   int _count = 0; // == privado
   int get count => _count;
-  late Color _color = Colors.red; // == privado
+  late Color _color = Colors.grey; // == privado
   Color get color => _color;
 
   void increment() {
