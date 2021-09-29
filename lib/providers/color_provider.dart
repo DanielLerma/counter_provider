@@ -1,29 +1,30 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ColorProvider with ChangeNotifier {
-  String _color = ''; // == privado
-  int get color => color;
+  late Color _color = Colors.red; // == privado
+  Color get color => _color;
 
   void blackColor() {
-    _color = 'black';
+    _color = Colors.black;
     // manda notificación
     notifyListeners();
   }
 
   void redColor() {
-    _color = 'red';
+    _color = Colors.red;
     // manda notificación
     notifyListeners();
   }
 
   void blueColor() {
-    _color = 'blue';
+    _color = Colors.blue;
     // manda notificación
     notifyListeners();
   }
 
   void greenColor() {
-    _color = 'green';
+    _color = Colors.green;
     // manda notificación
     notifyListeners();
   }
